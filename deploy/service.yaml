@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rbac-permissions-operator-metrics
+  namespace: openshift-rbac-permissions
+  labels:
+    k8s-app: rbac-permissions-operator
+spec:
+  ports:
+  - name: metrics
+    port: 8080
+  selector:
+    k8s-app: rbac-permissions-operator
+  type: ClusterIP

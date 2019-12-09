@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+      k8s-app: rbac-permissions-operator
+  name: rbac-permissions-operator
+  namespace: openshift-rbac-permissions
+spec:
+  endpoints:
+  - port: metrics
+    scheme: http
+    interval: 30s
+  selector:
+    matchLabels:
+      k8s-app: rbac-permissions-operator
+
